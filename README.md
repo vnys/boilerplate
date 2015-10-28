@@ -12,7 +12,6 @@ Also uses postcss with autoprefixer to bundle css-files and add vendor-prefixes
 - `watch:css` -> Watches css-files and runs `build:css` when there are changes
 - `build:js` -> Bundles es6-modules with rollup, transpiles to es5/umd with babel, and saves the result in "dist"
 - `build:css` -> Builds css with postcss and saves the result in "dist"
-- 
 
 **HOW TO USE**
 

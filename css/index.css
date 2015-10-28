@@ -1,0 +1,9 @@
+@import 'element.css';
+
+body {
+    background: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

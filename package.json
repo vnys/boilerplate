@@ -1,0 +1,46 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate with postcss, bower, babel, rollup, document-register-element, normalize.css and npm scripts for building, watching and reloading",
+  "main": "dist/script.js",
+  "jsnext:main": "js/script.js",
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install && npm start",
+    "start": "npm run watch:js & npm run watch:css & npm run serve",
+    "preserve": "npm run build:js & npm run build:css",
+    "serve": "browser-sync start --server www --server dist --server bower_components --files 'dist/*, www/*'",
+    "watch:js": "chokidar 'lib/*.js' 'js/*js' -c 'npm run build:js'",
+    "watch:css": "chokidar 'css/*.css' -c 'npm run build:css'",
+    "build:js": "mkdir -p dist && rollup js/script.js | babel -m umd --module-id myElement -o dist/script.js",
+    "build:css": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' -u postcss-import -o dist/style.css css/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batfink/boilerplate.git"
+  },
+  "keywords": [
+    "Babel",
+    "Postcss",
+    "es6",
+    "browser-sync",
+    "npm",
+    "scripts"
+  ],
+  "author": "Victor Nystad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/batfink/boilerplate/issues"
+  },
+  "homepage": "https://github.com/batfink/boilerplate#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.0.3",
+    "babel": "^5.8.23",
+    "bower": "^1.5.2",
+    "browser-sync": "^2.9.3",
+    "chokidar-cli": "^1.0.1",
+    "postcss-cli": "^2.1.0",
+    "postcss-import": "^7.0.0",
+    "postcss-nested": "^1.0.0",
+    "rollup": "^0.16.2"
+  }
+}

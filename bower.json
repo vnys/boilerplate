@@ -1,0 +1,7 @@
+{
+	"name": "boilerplate",
+	"devDependencies": {
+		"document-register-element": "latest",
+		"normalize-css": "latest"
+	}
+}

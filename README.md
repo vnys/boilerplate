@@ -15,12 +15,11 @@ Also uses postcss with autoprefixer to bundle css-files and add vendor-prefixes
 
 **HOW TO USE**
 
-Alternative 1: 
+*Alternative 1*
 - Fork repo
 
-Alternative 2:
-- Create your own repo
-- Clone your own repo
+*Alternative 2*
+- Create your own repo and clone locally
 - Add the boilerplate repo as a remote: `git remote add boilerplate git@github.com:batfink/boilerplate.git` if you’re using ssh, which you should, or `git remote add boilerplate https://github.com/batfink/boilerplate.git` if you don’t.
 - `git pull boilerplate master` to pull the files from boilerplate into your own repo
 

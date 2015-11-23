@@ -12,7 +12,7 @@
     "watch:js": "chokidar 'lib/*.js' 'js/*js' -c 'npm run build:js'",
     "watch:css": "chokidar 'css/*.css' -c 'npm run build:css'",
     "build:js": "mkdir -p dist && rollup js/script.js | babel -m umd --module-id myElement -o dist/script.js",
-    "build:css": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' -u postcss-import -o dist/style.css css/index.css"
+    "build:css": "postcss  -u postcss-import -u autoprefixer --autoprefixer.browsers 'last 2 versions' -u postcss-nested -o dist/style.css css/index.css"
   },
   "repository": {
     "type": "git",
@@ -33,14 +33,14 @@
   },
   "homepage": "https://github.com/batfink/boilerplate#readme",
   "devDependencies": {
-    "autoprefixer": "^6.0.3",
-    "babel": "^5.8.23",
-    "bower": "^1.5.2",
-    "browser-sync": "^2.9.3",
-    "chokidar-cli": "^1.0.1",
-    "postcss-cli": "^2.1.0",
-    "postcss-import": "^7.0.0",
-    "postcss-nested": "^1.0.0",
-    "rollup": "^0.16.2"
+    "autoprefixer": "latest",
+    "babel": "latest",
+    "bower": "latest",
+    "browser-sync": "latest",
+    "chokidar-cli": "latest",
+    "postcss-cli": "latest",
+    "postcss-import": "latest",
+    "postcss-nested": "latest",
+    "rollup": "latest"
   }
 }

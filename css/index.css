@@ -6,4 +6,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    my-element {
+        font-style: italic;
+    }
 }

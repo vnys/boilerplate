@@ -8,7 +8,7 @@
     "postinstall": "./node_modules/bower/bin/bower install && npm start",
     "start": "npm run watch:js & npm run watch:css & npm run serve",
     "preserve": "npm run build:js & npm run build:css",
-    "serve": "browser-sync start --server www --server dist --server bower_components --files 'dist/*, www/*'",
+    "serve": "browser-sync start --server public --server dist --server bower_components --files 'dist/*, public/*'",
     "watch:js": "chokidar 'lib/*.js' 'js/*js' -c 'npm run build:js'",
     "watch:css": "chokidar 'css/*.css' -c 'npm run build:css'",
     "build:js": "mkdir -p dist && rollup js/script.js | babel -m umd --module-id myElement -o dist/script.js",

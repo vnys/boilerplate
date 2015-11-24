@@ -1,6 +1,6 @@
 import { log } from '../lib/bondage.js';
 
-var _HTMLElement = function() {};
+let _HTMLElement = function() {};
 _HTMLElement.prototype = HTMLElement.prototype;
 
 class MyElement extends _HTMLElement {

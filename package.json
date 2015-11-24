@@ -4,6 +4,11 @@
   "description": "Boilerplate with postcss, bower, babel, rollup, document-register-element, normalize.css and npm scripts for building, watching and reloading",
   "main": "dist/script.js",
   "jsnext:main": "js/script.js",
+  "babel": {
+    "presets": [
+      "es2015-rollup"
+    ]
+  },
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install && npm start",
     "start": "npm run watch:js & npm run watch:css & npm run serve",
@@ -11,7 +16,8 @@
     "serve": "browser-sync start --server public --server dist --server bower_components --files 'dist/*, public/*'",
     "watch:js": "chokidar 'lib/*.js' 'js/*js' -c 'npm run build:js'",
     "watch:css": "chokidar 'css/*.css' -c 'npm run build:css'",
-    "build:js": "mkdir -p dist && rollup js/script.js | babel -m umd --module-id myElement -o dist/script.js",
+    "build:js": "mkdir -p dist && rollup -c -o dist/script.js",
+    "build:js:backup": "mkdir -p dist && rollup js/script.js | ./node_modules/babel-cli/bin/babel.js --out-file dist/script.js",
     "build:css": "postcss  -u postcss-import -u autoprefixer --autoprefixer.browsers 'last 2 versions' -u postcss-nested -o dist/style.css css/index.css"
   },
   "repository": {
@@ -34,13 +40,14 @@
   "homepage": "https://github.com/batfink/boilerplate#readme",
   "devDependencies": {
     "autoprefixer": "latest",
-    "babel": "latest",
+    "babel-preset-es2015-rollup": "latest",
     "bower": "latest",
     "browser-sync": "latest",
     "chokidar-cli": "latest",
     "postcss-cli": "latest",
     "postcss-import": "latest",
     "postcss-nested": "latest",
-    "rollup": "latest"
+    "rollup": "latest",
+    "rollup-plugin-babel": "latest"
   }
 }

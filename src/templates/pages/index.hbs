@@ -1,0 +1,15 @@
+---
+title: Custom element 
+layout: default
+---
+<my-element>
+    <p>{{homepage.title}}</p>
+    {{#compare 1 '===' 1}}true<br/>{{/compare}}
+    {{#compare 1 '===' 2}}true<br/>{{/compare}}
+    <ul>
+        {{#each homepage.list}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    {{> button}}
+</my-element>

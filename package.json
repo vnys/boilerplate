@@ -11,14 +11,16 @@
   },
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install && npm start",
-    "start": "npm run watch:js & npm run watch:css & npm run serve",
-    "preserve": "npm run build:js & npm run build:css",
-    "serve": "browser-sync start --server public --server dist --server bower_components --files 'dist/*, public/*'",
-    "watch:js": "chokidar 'lib/*.js' 'js/*js' -c 'npm run build:js'",
-    "watch:css": "chokidar 'css/*.css' -c 'npm run build:css'",
+    "start": "npm run watch:js & npm run watch:css & npm run watch:html & npm run serve",
+    "preserve": "npm run build:js & npm run build:css & npm run build:html",
+    "serve": "browser-sync start --server dist --server bower_components --files 'dist/*'",
+    "watch:js": "chokidar ./src/js/**/*js -c 'npm run build:js'",
+    "watch:css": "chokidar ./src/css/**/*.css -c 'npm run build:css'",
+    "watch:html": "chokidar ./src/templates/**/*.hbs -c 'npm run build:html'",
     "build:js": "mkdir -p dist && rollup -c -o dist/script.js",
     "build:js:backup": "mkdir -p dist && rollup js/script.js | ./node_modules/babel-cli/bin/babel.js --out-file dist/script.js",
-    "build:css": "postcss  -u postcss-import -u autoprefixer --autoprefixer.browsers 'last 2 versions' -u postcss-nested -o dist/style.css css/index.css"
+    "build:css": "postcss  -u postcss-import -u autoprefixer -u postcss-nested -o dist/style.css src/css/index.css",
+    "build:html": "taft --data ./src/data/*.yaml --helper handlebars-helpers --layout src/templates/layouts/default.hbs --partial src/templates/partials/*.hbs src/templates/pages/*.hbs --cwd=src/templates/pages  --dest-dir dist/"
   },
   "repository": {
     "type": "git",
@@ -48,6 +50,7 @@
     "postcss-import": "latest",
     "postcss-nested": "latest",
     "rollup": "latest",
-    "rollup-plugin-babel": "latest"
+    "rollup-plugin-babel": "latest",
+    "handlebars-helpers": "latest"
   }
 }
